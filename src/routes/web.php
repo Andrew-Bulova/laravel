@@ -11,6 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'WeatherController@index');
+
+Route::get('/city/post', function (){
+    return view('layouts.weather_post');
 });
+
+Route::match(['get', 'post'],'/city', 'WeatherController@showWeather')->name('city');
+

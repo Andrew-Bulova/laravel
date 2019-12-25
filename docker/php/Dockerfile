@@ -8,6 +8,8 @@ RUN docker-php-ext-install mysqli
 RUN apt-get install -y zlib1g-dev
 RUN docker-php-ext-install zip
 
+RUN apt-get install -y curl
+
 RUN apt-get update
 RUN apt-get install -y
 RUN docker-php-ext-install bcmath

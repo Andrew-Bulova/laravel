@@ -175,6 +175,12 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * Added by myself
+         */
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+
+
     ],
 
     /*
