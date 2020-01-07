@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PerfumesController@index');
+
+Route::post('/save', 'PerfumesController@saveSmell');
+
+Route::get('/add_perfume', 'PerfumesController@addPerfume');
+
+Route::get('/delete/{id}', 'PerfumesController@delPerfume');
