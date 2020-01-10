@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!--Стили BootsTrap-->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+
+    <!--Мои стили-->
+    <link rel="stylesheet" href="../style.css">
+
+    <!--Заголовок страницы-->
+    <title>Создание фейкового пользователя</title>
+</head>
+
+<body>
+<div class="container-fluid
+            no-gutters
+            row
+            p-0">
+    <!--Навигация-->
+    <div class="border-right
+                col-2">
+        <ul class="flex-column
+                   nav">
+            <li class="border-bottom
+                       nav-item">
+                <a class="list-group-item-action
+                          list-group-item
+                          text-secondary
+                          border-0
+                          nav-link"
+                   href="usersList.html">Список пользователей</a>
+            </li>
+
+            <li class="border-bottom
+                       nav-item">
+                <a class="list-group-item-action
+                          list-group-item
+                          text-secondary
+                          border-0
+                          nav-link"
+                   href="eventsList.html">Список мероприятий</a>
+            </li>
+
+            <li class="border-bottom
+                       nav-item">
+                <a class="list-group-item-action
+                          list-group-item
+                          text-secondary
+                          border-0
+                          nav-link"
+                   href="reportsList.html">Список и просмотр жалоб</a>
+            </li>
+
+            <li class="border-bottom
+                       nav-item">
+                <a class="list-group-item-action
+                          list-group-item
+                          text-secondary
+                          border-0
+                          nav-link"
+                   href="pushNotification.html">Отправка уведомления</a>
+            </li>
+
+            <li class="border-bottom
+                       nav-item">
+                <a class="list-group-item-action
+                          list-group-item
+                          text-secondary
+                          border-0
+                          nav-link"
+                   href="sliderProperties.html">Настройка слайдера</a>
+            </li>
+
+            <li class="border-bottom
+                       nav-item">
+                <a class="list-group-item-action
+                          list-group-item
+                          text-secondary
+                          border-0
+                          nav-link"
+                   href="referalCodesList.html">Список реферальных кодов</a>
+            </li>
+
+            <li class="border-bottom
+                       nav-item">
+                <a class="list-group-item-action
+                          list-group-item
+                          text-secondary
+                          border-0
+                          nav-link"
+                   href="../index.html">Выход</a>
+            </li>
+        </ul>
+    </div>
+
+    @yield('')
