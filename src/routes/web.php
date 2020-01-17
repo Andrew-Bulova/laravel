@@ -13,10 +13,8 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function (){
-    view('layouts.createFakeUserProfile');
-});
+Route::get('/', 'UserController@regForm')->name('reg_form');
 
-Route::get('/', function () {
-    return view('layouts.createFakeUserProfile');
-});
+Route::post('/create', 'UserController@createUser')->name('create_user');
+
+Route::get('/test', 'UserController@test');
