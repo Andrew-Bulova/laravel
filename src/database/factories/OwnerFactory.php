@@ -5,8 +5,9 @@
 use App\Model;
 use Faker\Generator as Faker;
 
-$factory->define(Owner::class, function (Faker $faker) {
+$factory->define(\App\OwnerModel::class, function (Faker $faker) {
     return [
-        //
+        'first_name' => $faker->firstName,
+        'last_name' => $faker->lastName
     ];
 });

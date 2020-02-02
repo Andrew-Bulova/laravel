@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateOwnerTable extends Migration
+class CreateOwnersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class CreateOwnerTable extends Migration
      */
     public function up()
     {
-        Schema::create('owner', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('owners', function (Blueprint $table){
+            $table->increments('id');
+            $table->string('first_name');
+            $table->string('last_name');
             $table->timestamps();
         });
     }

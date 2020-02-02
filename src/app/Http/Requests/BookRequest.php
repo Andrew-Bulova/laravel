@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Carbon;
 
 class BookRequest extends FormRequest
 {
@@ -13,7 +14,12 @@ class BookRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
+    }
+
+    static public function nowYear()
+    {
+        return Carbon::now()->year;
     }
 
     /**
@@ -23,8 +29,32 @@ class BookRequest extends FormRequest
      */
     public function rules()
     {
+
         return [
-            //
+            'name' => 'required|max:200',
+            'year' => "required|integer|min:1800|max:{$this->nowYear()}",
+            'publisher_id' => 'required|exists:publishers,id',
+            'author_id' => 'required|exists:authors,id'
         ];
+    }
+
+    public function getName()
+    {
+        return $this->get('name');
+    }
+
+    public function getYear()
+    {
+        return $this->get('year');
+    }
+
+    public function getPublisherId()
+    {
+        return $this->get('publisher_id');
+    }
+
+    public function getAuthorId()
+    {
+        return $this->get('author_id');
     }
 }

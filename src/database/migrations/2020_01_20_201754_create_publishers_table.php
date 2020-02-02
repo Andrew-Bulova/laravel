@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePublisherTable extends Migration
+class CreatePublishersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -18,6 +18,7 @@ class CreatePublisherTable extends Migration
             $table->string('name');
             $table->integer('city_id')->unsigned();
             $table->integer('owner_id')->unsigned();
+            $table->timestamps();
         });
 
         Schema::table('publishers', function (Blueprint $table){
