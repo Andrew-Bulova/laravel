@@ -49,6 +49,7 @@ class BookController extends Controller
         $publishers = PublisherModel::all();
         $authors = AuthorModel::all();
 
+
         return view('layouts.filter',
             ['publishers' => $publishers,
              'authors'    => $authors]);
@@ -61,5 +62,29 @@ class BookController extends Controller
         $books = $books->paginate(20);
 
         return view('layouts.store', compact('books'));
+    }
+
+    protected function showBook($id)
+    {
+        $books = $this->bookWhereId($id);
+
+        return view('layouts.book', compact('books'));
+    }
+
+    protected function editBook($id)
+    {
+
+    }
+
+    protected function delete($id)
+    {
+        DB::table('books')->whereId($id)->delete();
+
+        return redirect(route('book_list'));
+    }
+
+    protected function bookWhereId($id)
+    {
+        return BookModel::whereId($id)->get();
     }
 }

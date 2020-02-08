@@ -19,5 +19,3 @@ RUN composer --version
 RUN apt-get update && apt-get install -y wget git unzip \
     && pecl install xdebug-2.7.1 \
     && docker-php-ext-enable xdebug
-
-

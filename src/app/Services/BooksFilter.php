@@ -6,6 +6,7 @@ namespace App\Services;
 
 use App\BookModel;
 use App\Http\Requests\BookFilterRequest;
+use Illuminate\Support\Facades\DB;
 
 class BooksFilter
 {
@@ -22,7 +23,10 @@ class BooksFilter
     {
         foreach ($this->filters() as $filter=>$value) {
             if (method_exists($this,$filter)){
-                $this->$filter($value);
+                if($value)
+                {
+                    $this->$filter($value);
+                };
             };
         }
 
@@ -36,15 +40,27 @@ class BooksFilter
 
     public function year($value)
     {
-        $this->books->where('year', 'like', "%$value%");
+        $this->books->where('year', '=', $value);
     }
     public function author($value)
     {
-        $this->books->where('author', 'like', "%$value%");
+        $this->books->whereAuthorId($value);
     }
     public function publisher($value)
     {
-        $this->books->where('publisher', 'like', "%$value%");
+        $this->books->wherePublisherId($value);
+    }
+    public function owner($value)
+    {
+        $publishers = DB::table('publishers')->where('owner_id', $value)->get();
+        $publisherNames = '';
+        foreach ($publishers as $publisher)
+        {
+            $publisherNames .= "$publisher->id". ', ';
+        }
+        $publisherNames = trim($publisherNames, ', ');
+        var_dump($publisherNames);die();
+        $this->books->wherePublisherId($publisherNames);
     }
     public function filters()
     {

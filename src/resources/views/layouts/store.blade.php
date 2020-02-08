@@ -24,14 +24,29 @@
                        @php
                            /** @var app\BookModel $book*/
                        @endphp
-                       {{--                {{var_dump($book)}}--}}
-                       {{--                {{die()}}--}}
                        <tr>
+
                            <th scope="row">{{$loop->iteration}}</th>
-                           <td>{{$book->name}}</td>
-                           <td>{{$book->author->first_name . ' ' . $book->author->last_name}}</td>
-                           <td>{{$book->year}}</td>
-                           <td>{{$book->publisher->name}}</td>
+                           <td>
+                               <a href="{{route('showBook', ['id'=>$book->id])}}">
+                               {{$book->name}}
+                               </a>
+                           </td>
+                           <td>
+                               <a href="{{route('showBook', ['id'=>$book->id])}}">
+                               {{$book->author->first_name . ' ' . $book->author->last_name}}
+                               </a>
+                           </td>
+                           <td>
+                               <a href="{{route('showBook', ['id'=>$book->id])}}">
+                               {{$book->year}}
+                               </a>
+                           </td>
+                           <td>
+                               <a href="{{route('showBook', ['id'=>$book->id])}}">
+                               {{$book->publisher->name}}
+                               </a>
+                           </td>
                        </tr>
                    @endforeach
                </div>

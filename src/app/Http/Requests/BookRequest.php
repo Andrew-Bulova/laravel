@@ -33,8 +33,8 @@ class BookRequest extends FormRequest
         return [
             'name' => 'required|max:200',
             'year' => "required|integer|min:1800|max:{$this->nowYear()}",
-            'publisher_id' => 'required|exists:publishers,id',
-            'author_id' => 'required|exists:authors,id'
+            'publisher' => 'required|exists:publishers,id',
+            'author' => 'required|exists:authors,id'
         ];
     }
 

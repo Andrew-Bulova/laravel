@@ -11,4 +11,14 @@ class OwnerModel extends Model
         'firstName',
         'lastName'
     ];
+
+    public function owner()
+    {
+        $this->hasOne(OwnerModel::class, 'id', 'owner_id');
+    }
+
+    public function getFullNameAttribute()
+    {
+        return $this->first_name.' '.$this->last_name;
+    }
 }

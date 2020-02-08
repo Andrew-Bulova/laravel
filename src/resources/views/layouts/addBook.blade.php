@@ -16,7 +16,7 @@
         @endif
         <div class="form-group">
             <label for="bookName">Title</label>
-            <input type="text" class="form-control" id="bookName" name="name" placeholder="Title">
+            <input type="text" class="form-control" id="bookName" name="name" placeholder="Title" value="1111111">
         </div>
         <div class="form-group">
             <label for="bookYear">Year</label>

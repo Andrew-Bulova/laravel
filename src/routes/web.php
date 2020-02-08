@@ -17,11 +17,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/list', 'BookController@store');
+Route::get('/list', 'BookController@store')->name('book_list');
 
 Route::get('/add_book', 'BookController@addBook')->name('add_book');
 
 Route::post('/create_book', 'BookController@create')->name('create_book');
+
+Route::get('/delete_book/{id}', 'BookController@delete')->name('delete_book');
+
+Route::get('/book/{id}', 'BookController@showBook')->name('showBook');
+
+Route::get('/edit_book/{id}', 'BookController@editBook')->name('edit_book');
 
 Route::get('/filter_form', 'BookController@filterForm')->name('filter_form');
 

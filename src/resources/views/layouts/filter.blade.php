@@ -23,7 +23,8 @@
             </div>
             <div class="form-group">
                 <label for="bookPublisherSelect">Published by </label>
-                <select multiple class="form-control" id="bookPublisherSelect" name="publisher_id">
+                <select class="form-control" id="bookPublisherSelect" name="publisher">
+                    <option></option>
                     @foreach($publishers as $publisher)
                         <option value="{{$publisher->id}}">{{$publisher->name}}</option>
                     @endforeach
@@ -31,9 +32,19 @@
             </div>
             <div class="form-group">
                 <label for="bookAuthorSelect">Author </label>
-                <select multiple class="form-control" id="bookAuthorSelect" name="author_id">
+                <select class="form-control" id="bookAuthorSelect" name="author">
+                    <option></option>
                     @foreach($authors as $author)
                         <option value="{{$author->id}}">{{$author->fullName}}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="publisherOwnerSelect">Owner</label>
+                <select class="form-control" id="publisherOwnerSelect" name="owner">
+                    <option></option>
+                    @foreach($publishers as $publisher)
+                        <option value="{{$publisher->owner->id}}">{{$publisher->owner->fullName}}</option>
                     @endforeach
                 </select>
             </div>

@@ -20,6 +20,6 @@ class PublisherModel extends Model
 
     protected function owner()
     {
-        return $this->hasOne('app\Owner');
+        return $this->hasOne(OwnerModel::class, 'id', 'owner_id');
     }
 }
