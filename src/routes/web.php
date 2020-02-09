@@ -10,7 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\CategoryModel as Category;
 
 Route::get('/', function () {
-    return view('welcome');
+    $categories = Category::whereParentId('0')->get();
+
+    return view('list', compact('categories'));
 });
