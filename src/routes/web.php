@@ -11,6 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/add_form', 'StudentController@addForm')->name('add_form');
+
+Route::post('/new_student', 'StudentController@createStudent')->name('new_student');
+
+Route::get('/index', 'StudentController@index')->name('index');
+
+Route::get('/student/{id}/missing', 'StudentController@addMissing')->name('missing');
+
