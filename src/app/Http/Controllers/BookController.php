@@ -8,6 +8,7 @@ use App\Http\Requests\BookFilterRequest;
 use App\Http\Requests\BookRequest;
 use App\PublisherModel;
 use App\Services\BooksFilter;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
@@ -57,7 +58,7 @@ class BookController extends Controller
 
     protected function filter(BookFilterRequest $request)
     {
-        $books = BookModel::with('author', 'publisher');
+        $books = BookModel::with('author', 'publisher')->select('books.*');
         $books = (new BooksFilter($books, $request))->apply();
         $books = $books->paginate(20);
 

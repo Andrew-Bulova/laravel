@@ -15,7 +15,7 @@ class PublisherModel extends Model
 
     protected function city()
     {
-        return $this->hasOne('app\City');
+        return $this->hasOne(CityModel::class);
     }
 
     protected function owner()

@@ -52,15 +52,9 @@ class BooksFilter
     }
     public function owner($value)
     {
-        $publishers = DB::table('publishers')->where('owner_id', $value)->get();
-        $publisherNames = '';
-        foreach ($publishers as $publisher)
-        {
-            $publisherNames .= "$publisher->id". ', ';
-        }
-        $publisherNames = trim($publisherNames, ', ');
-        var_dump($publisherNames);die();
-        $this->books->wherePublisherId($publisherNames);
+       $this->books->
+       leftJoin('publishers', 'books.publisher_id', '=', 'publishers.id')->
+       whereOwnerId($value);
     }
     public function filters()
     {

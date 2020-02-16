@@ -44,7 +44,7 @@
                 <select class="form-control" id="publisherOwnerSelect" name="owner">
                     <option></option>
                     @foreach($publishers as $publisher)
-                        <option value="{{$publisher->owner->id}}">{{$publisher->owner->fullName}}</option>
+                        <option value="{{$publisher->owner_id}}">{{$publisher->owner->fullName}}</option>
                     @endforeach
                 </select>
             </div>

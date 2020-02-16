@@ -13,7 +13,7 @@ class APIRegisterRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,11 @@ class APIRegisterRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|string|max:30|min:2',
+            'email' => 'required|email:rfc,dns|max:255|unique:users,email',
+            'password' =>
+                'required|min:8|max:12|regex:^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$|confirmed',
+            'password_confirm' => 'required|same:password'
         ];
     }
 }
