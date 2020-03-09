@@ -1,0 +1,37 @@
+.main_container {
+    margin-top: 15%;
+}
+
+.form_authorization {
+    border: 1px solid #ccc;
+    padding: 15px;
+}
+
+.nav-item {
+    border-bottom: 1px solid #ccc;
+}
+
+.usersHead {
+    border-top:none
+}
+
+.usersList {
+    border-left: 1px solid #ccc;
+}
+
+.list-group-item {
+    border-left: none;
+}
+
+.license {
+    margin-bottom: .5rem;
+}
+
+.browsImg {
+    max-width: 250px;
+    height: 250px;
+}
+
+.img-fluid {
+    max-height: 100%;
+}

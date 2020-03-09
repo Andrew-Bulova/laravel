@@ -4,8 +4,64 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4731429c7f25ab92eaa813447a972209",
+    "content-hash": "33130b00eeec8b2ce898cac575ca64d4",
     "packages": [
+        {
+            "name": "dlnsk/h-rbac",
+            "version": "v0.4.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dlnsk/h-rbac.git",
+                "reference": "605efb34cd989f94f665982e52446adb75bca7ac"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dlnsk/h-rbac/zipball/605efb34cd989f94f665982e52446adb75bca7ac",
+                "reference": "605efb34cd989f94f665982e52446adb75bca7ac",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "~5.7|>=6.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^4.5",
+                "phpunit/phpunit": "^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Dlnsk\\HierarchicalRBAC\\HRBACServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Dlnsk\\HierarchicalRBAC\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dmitry Pupinin",
+                    "email": "dlnsk@mail.ru"
+                }
+            ],
+            "description": "Based on native Laravel's abilities. Hierarchical RBAC with callbacks.",
+            "homepage": "https://github.com/dlnsk/h-rbac",
+            "keywords": [
+                "ability",
+                "hierarchical",
+                "laravel",
+                "permission",
+                "rbac",
+                "role"
+            ],
+            "time": "2020-01-16T06:03:41+00:00"
+        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "v0.1.1",
