@@ -13,7 +13,7 @@ $factory->define(\App\Contractor::class, function (Faker $faker) {
         'legal_address' => $faker->address,
         'actual_address' => $faker->address,
         'registration_date' => $faker->date('Y-m-d', $max='now'),
-        'tin' => $faker->numberBetween(1111111111, 99999999999),
+        'tin' => $faker->numberBetween(1111111111, 9999999999),
         'mes_license_photo' => '/storage/images/test.jpeg',
         'mes_license_number' => $faker->numberBetween(11111111, 99999999),
         'mes_license_date' => $faker->date(),

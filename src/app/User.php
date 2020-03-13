@@ -37,11 +37,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function scopeUsers($query)
-    {
-        return $query->where('parts_id', '1')->leftJoin('user_details', 'users.id', '=', 'user_details.user_id');
-    }
-
     public function feedback(){
         return $this->morphMany(Feedback::class, 'target');
     }

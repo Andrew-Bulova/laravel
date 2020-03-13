@@ -34,9 +34,9 @@
                         <p class="mb-2">Загрузите фото или лого эксперта</p>
                         <div class="row">
                             <div class="col browsImg mb-2 align-self-center">
-                                <a href="          #bigLogoPic"
+                                <a href="#bigLogoPic"
                                    data-toggle="modal">
-                                    <img class="img-fluid" src="/{{$contractor->photo}}" alt="logo">
+                                    <img class="img-fluid" src="{{$contractor->photo}}" alt="logo">
                                 </a>
                                 <div id="bigLogoPic" class="modal fade">
                                     <div class="modal-dialog modal-lg">
@@ -52,7 +52,7 @@
                                                 <div class="col-auto">
                                                     <div class="modal-body">
                                                         <img class="img-fluid"
-                                                             src="/{{$contractor->photo}}" alt="logo">
+                                                             src="{{$contractor->photo}}" alt="logo">
                                                     </div>
                                                 </div>
                                             </div>
@@ -116,9 +116,9 @@
                     <p class="mb-2">Лицензия мчс</p>
                     <div class="row">
                         <div class="col browsImg mb-2 align-self-center">
-                            <a href="http://37.143.11.28/fireMarketPlace/admin/navDirectory/editContractorList.html#bigContractorLicenseMCSPic"
+                            <a href="#bigContractorLicenseMCSPic"
                                data-toggle="modal">
-                                <img class="img-fluid" src="/{{$contractor->mes_license_photo}}" alt="logo">
+                                <img class="img-fluid" src="{{$contractor->mes_license_photo}}" alt="logo">
                             </a>
                             <div id="bigContractorLicenseMCSPic" class="modal fade" style="display: none;"
                                  aria-hidden="true">
@@ -135,7 +135,7 @@
                                             <div class="col-auto">
                                                 <div class="modal-body">
                                                     <img class="img-fluid"
-                                                         src="/{{$contractor->mes_license_photo}}"
+                                                         src="{{$contractor->mes_license_photo}}"
                                                          alt="contractorLicenseMCS">
                                                 </div>
                                             </div>
@@ -149,7 +149,7 @@
                         <div class="form-group col-12">
                             <p class="license">Фото лицензии</p>
                             <div class="custom-file">
-                                <input type="file" value="{{$contractor->mes_license_photo}}" name="mes_license_photo"
+                                <input type="file" name="mes_license_photo"
                                        class="custom-file-input @error('mes_license_photo') is-invalid @enderror"
                                        id="contractorLicenseMCS">
                                 <label class="custom-file-label" for="contractorLicenseMCS">Загрузить фото</label>
@@ -182,7 +182,7 @@
                     <p class="mb-2">Аккредитация НОР</p>
                     <div class="row">
                         <div class="col browsImg mb-2 align-self-center">
-                            <a href="http://37.143.11.28/fireMarketPlace/admin/navDirectory/editContractorList.html#bigLicenseAccPic"
+                            <a href="#bigLicenseAccPic"
                                data-toggle="modal">
                                 <img class="img-fluid" src="{{$contractor->ira_accreditation_photo}}" alt="logo">
                             </a>
@@ -216,7 +216,7 @@
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input @error('ira_accreditation_photo')
                                     is-invalid @enderror" id="contractorLicenseACC"
-                                       name="ira_accreditation_photo" value="{{$contractor->ira_accreditation_photo}}">
+                                       name="ira_accreditation_photo">
                                 <label class="custom-file-label" for="contractorLicenseACC">Загрузить фото</label>
                                 @error('ira_accreditation_photo')
                                 <div class="alert alert-danger">{{ $message }}</div>
@@ -247,7 +247,7 @@
                     <p class="mb-2">Электролаборатория</p>
                     <div class="row justify-content-lg-start">
                         <div class="col browsImg mb-2">
-                            <a href="http://37.143.11.28/fireMarketPlace/admin/navDirectory/editContractorList.html#bigContractorLicenseLABPic"
+                            <a href="#bigContractorLicenseLABPic"
                                data-toggle="modal">
                                 <img class="img-fluid" src="{{$contractor->electric_laboratory_license_photo}}"
                                      alt="logo">
@@ -282,8 +282,7 @@
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input @error('electric_laboratory_license_photo')
                                     is-invalid @enderror" name="electric_laboratory_license_photo"
-                                       id="contractorLicenseLAB"
-                                       value="{{$contractor->electric_laboratory_license_photo}}">
+                                       id="contractorLicenseLAB">
                                 <label class="custom-file-label" for="contractorLicenseLAB">Загрузить фото</label>
                                 @error('electric_laboratory_license_photo')
                                 <div class="alert alert-danger">{{ $message }}</div>
@@ -315,7 +314,7 @@
                     <p class="mb-2">Лицензия на образовательную деятельность</p>
                     <div class="row justify-content-lg-start">
                         <div class="col browsImg mb-2">
-                            <a href="http://37.143.11.28/fireMarketPlace/admin/navDirectory/editContractorList.html#bigContractorLicenseADUCPic"
+                            <a href="#bigContractorLicenseADUCPic"
                                data-toggle="modal">
                                 <img class="img-fluid" src="{{$contractor->educational_license_photo}}" alt="logo">
                             </a>
@@ -349,8 +348,7 @@
                             <div class="custom-file">
                                 <input type="file" name="educational_license_photo"
                                        class="custom-file-input @error('educational_license_photo')
-                                           is-invalid @enderror" value="{{$contractor->educational_license_photo}}"
-                                       id="contractorLicenseADUC">
+                                           is-invalid @enderror" id="contractorLicenseADUC">
                                 <label class="custom-file-label" for="contractorLicenseADUC">Загрузить фото</label>
                                 @error('educational_license_photo')
                                 <div class="alert alert-danger">{{ $message }}</div>

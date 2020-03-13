@@ -99,11 +99,13 @@ Route::get('/requirement/{id}/deleting', 'RequirementController@destroy')->name(
 //Route::get('/requirement/{id}', 'RequirementController@show')->name('show_requirement');
 
 
-Route::get('/building/list/user/{id}', 'BuildingController@index')->name('building_list');
+Route::get('/building/list/entity/{id}', 'BuildingController@index')->name('building_list');
 
 Route::get('/building/new', 'BuildingController@create')->name('new_building');
 
 Route::post('/building/adding', 'BuildingController@store')->name('building_add');
+
+Route::get('/building/{id}', 'BuildingController@show');
 
 Route::get('/building/{id}/edit_form', 'BuildingController@edit')->name('building_edit_form');
 
