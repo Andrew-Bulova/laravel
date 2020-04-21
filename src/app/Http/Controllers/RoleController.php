@@ -2,22 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Facility;
-use App\Feedback;
+use App\Role;
 use Illuminate\Http\Request;
 
-class FacilityController extends Controller
+class RoleController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return \Illuminate\Http\Response
      */
-    public function index($user_id)
+    public function index()
     {
-        $feedbackList = Feedback::WhereId($user_id)->paginate(10);
-
-        return view('feedback_list', compact('feedbackList'));
+        //
     }
 
     /**
@@ -44,10 +41,10 @@ class FacilityController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Facility  $facility
+     * @param  \App\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function show(Facility $facility)
+    public function show(Role $role)
     {
         //
     }
@@ -55,10 +52,10 @@ class FacilityController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Facility  $facility
+     * @param  \App\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function edit(Facility $facility)
+    public function edit(Role $role)
     {
         //
     }
@@ -67,10 +64,10 @@ class FacilityController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Facility  $facility
+     * @param  \App\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Facility $facility)
+    public function update(Request $request, Role $role)
     {
         //
     }
@@ -78,10 +75,10 @@ class FacilityController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Facility  $facility
+     * @param  \App\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Facility $facility)
+    public function destroy(Role $role)
     {
         //
     }

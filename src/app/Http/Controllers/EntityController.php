@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Entity;
 use App\Http\Requests\EntityRequest;
+use App\Traits\Permission;
+use App\User;
 use Illuminate\Http\Request;
 
 class EntityController extends Controller
 {
+    use Permission;
     /**
      * Display a listing of the resource.
      *
@@ -16,6 +19,7 @@ class EntityController extends Controller
      */
     public function index($id)
     {
+        $this->checkAccess('index', Entity::class);
         $entities = Entity::whereUserId($id)->get();
 
         return view('layouts.entities_list', compact('entities'));
@@ -28,6 +32,8 @@ class EntityController extends Controller
      */
     public function create()
     {
+        $this->checkAccess('create', Entity::class);
+
         return view('layouts.new_entity');
     }
 
@@ -61,6 +67,7 @@ class EntityController extends Controller
      */
     public function edit($id)
     {
+        $this->checkAccess('edit', Entity::class);
         $entity = Entity::findOrFail($id);
 
         return view('layouts.entity', compact('entity'));
@@ -75,6 +82,7 @@ class EntityController extends Controller
      */
     public function update(EntityRequest $request, $id)
     {
+        $this->checkAccess('update', Entity::class);
         $entity = Entity::findOrFail($id);
         $entity->name = $request->get('name');
         $entity->legal_address = $request->get('legal_address');
@@ -97,6 +105,7 @@ class EntityController extends Controller
      */
     public function destroy($id)
     {
+        $this->checkAccess('destroy', Entity::class);
         $entity = Entity::findOrFail($id);
         $userId = $entity->user_id;
         $entity->delete();

@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\RequirementRequest;
 use App\Requirement;
+use App\Traits\Permission;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Pagination\Paginator;
 
 class RequirementController extends Controller
 {
+    use Permission;
     /**
      * Display a listing of the resource.
      *
@@ -16,6 +19,7 @@ class RequirementController extends Controller
      */
     public function index()
     {
+        $this->checkAccess('index', Requirement::class);
         $requirements = Requirement::paginate(10);
 
         return view('layouts.requirements_list', compact('requirements'));
@@ -28,6 +32,8 @@ class RequirementController extends Controller
      */
     public function create()
     {
+        $this->checkAccess('create', Requirement::class);
+
         return view('layouts.requirement');
     }
 
@@ -39,6 +45,7 @@ class RequirementController extends Controller
      */
     public function store(RequirementRequest $request)
     {
+        $this->checkAccess('store', Requirement::class);
         $requirement = new Requirement();
         $requirement->title = $request->get('title');
         $requirement->description = $request->get('description');
@@ -67,6 +74,7 @@ class RequirementController extends Controller
      */
     public function edit($id)
     {
+        $this->checkAccess('edit', Requirement::class);
         $requirement = Requirement::findOrFail($id);
 
         return view('layouts.requirement', compact('requirement'));
@@ -81,6 +89,7 @@ class RequirementController extends Controller
      */
     public function update(RequirementRequest $request, $id)
     {
+        $this->checkAccess('update', Requirement::class);
         $requirement = Requirement::findOrFail($id);
         $requirement->title = $request->get('title');
         $requirement->description = $request->get('description');
@@ -97,6 +106,7 @@ class RequirementController extends Controller
      */
     public function destroy($id)
     {
+        $this->checkAccess('destroy', Requirement::class);
         Requirement::destroy($id);
 
         return redirect(route('requirement_list'));

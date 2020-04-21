@@ -18,8 +18,13 @@ class CreateBuildingAttributeTable extends Migration
             $table->unsignedBigInteger('building_id');
             $table->string('attribute');
             $table->boolean('value');
-            $table->foreign('building_id')->references('id')->on('buildings');
-            $table->foreign('attribute')->references('attribute')->on('attributes');
+            $table->foreign('building_id')
+                ->references('id')
+                ->on('buildings')
+                ->onDelete('cascade');
+            $table->foreign('attribute')
+                ->references('attribute')
+                ->on('attributes');
         });
     }
 

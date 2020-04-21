@@ -13,19 +13,21 @@ class CreateBuildingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('buildings', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->unsignedBigInteger('entity_id');
-            $table->string('name',50);
-            $table->string('actual_address',150);
-            $table->date('registration_date');
-            $table->string('appointment',50);
-            $table->string('appointment_in_detail');
-            $table->unsignedTinyInteger('storeys');
-            $table->string('room_location',50);
-            $table->timestamps();
-            $table->foreign('entity_id')->references('id')->on('entities');
-        });
+        Schema::create('buildings',
+            function (Blueprint $table) {
+                $table->bigIncrements('id');
+                $table->unsignedBigInteger('entity_id');
+                $table->string('name', 50);
+                $table->string('actual_address', 150);
+                $table->date('registration_date');
+                $table->string('appointment', 50);
+                $table->string('appointment_in_detail');
+                $table->unsignedTinyInteger('storeys');
+                $table->string('room_location', 50);
+                $table->timestamps();
+                $table->foreign('entity_id')->references('id')->on('entities')
+                    ->onDelete('cascade');
+            });
     }
 
     /**

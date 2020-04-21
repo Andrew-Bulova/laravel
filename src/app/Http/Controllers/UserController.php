@@ -3,15 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
+use App\Traits\Permission;
 use App\User;
-use Faker\Provider\Uuid;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+    use Permission;
 
     public function index()
     {
+        $this->checkAccess('index', User::class);
+
         $users = User::paginate(10);
         $targetType = 'User';
 
@@ -25,6 +29,8 @@ class UserController extends Controller
      */
     public function create()
     {
+        $this->checkAccess('create', User::class);
+
         return view('layouts.user');
     }
 
@@ -67,6 +73,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
+        $this->checkAccess('edit', User::class);
         $user = User::findOrFail($id);
 
         return view('layouts.user', compact('user'));
@@ -81,6 +88,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->checkAccess('update', User::class);
         $user = User::findOrFail($id);
         $user->phone = $request->get('phone');
         $user->name = $request->get('name');
@@ -99,6 +107,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
+        $this->checkAccess('destroy', User::class);
         User::destroy($id);
 
         return redirect(route('user_list'));

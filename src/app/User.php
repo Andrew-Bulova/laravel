@@ -41,5 +41,11 @@ class User extends Authenticatable
         return $this->morphMany(Feedback::class, 'target');
     }
 
-
+    public static function boot()
+    {
+        parent::boot();
+        self::deleting(function ($user){
+            $user->feedback()->delete();
+        });
+    }
 }

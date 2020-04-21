@@ -5,10 +5,13 @@ namespace App\Http\Controllers;
 use App\Contractor;
 use App\Http\Requests\ContractorRequest;
 use App\Services\ContractorService;
+use App\Traits\Permission;
+use App\User;
 use Illuminate\Http\Request;
 
 class ContractorController extends Controller
 {
+    use Permission;
     /**
      * Display a listing of the resource.
      *
@@ -16,6 +19,7 @@ class ContractorController extends Controller
      */
     public function index()
     {
+        $this->checkAccess('index', Contractor::class);
         $contractors = Contractor::paginate(10);
         $targetType = 'Contractor';
 
@@ -62,6 +66,7 @@ class ContractorController extends Controller
      */
     public function edit($id)
     {
+        $this->checkAccess('edit', Contractor::class);
         $contractor = Contractor::findOrFail($id);
 
         return view('layouts.contractor', compact('contractor'));
@@ -77,6 +82,7 @@ class ContractorController extends Controller
      */
     public function update(ContractorRequest $request, ContractorService $contractor, $id)
     {
+        $this->checkAccess('update', Contractor::class);
         $contractor->contractorUpdate($request, $id);
 
         return redirect(route('contractor_list'));
@@ -90,6 +96,7 @@ class ContractorController extends Controller
      */
     public function destroy($id)
     {
+        $this->checkAccess('destroy', Contractor::class);
         Contractor::destroy($id);
 
         return redirect(route('contractor_list'));

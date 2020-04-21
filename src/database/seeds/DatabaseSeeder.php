@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(OverUsersTableSeeder::class);
         $this->call(AttributeSeeder::class);
+        $this->call(RoleSeeder::class);
 
         $attributes = Attribute::pluck('attribute')->toArray();
 

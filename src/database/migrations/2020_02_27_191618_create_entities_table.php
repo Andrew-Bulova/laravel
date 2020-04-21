@@ -25,7 +25,7 @@ class CreateEntitiesTable extends Migration
             $table->string('phone', 15);
             $table->string('email',50);
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

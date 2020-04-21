@@ -6,11 +6,14 @@ use App\Building;
 use App\Entity;
 use App\Http\Requests\BuildingRequest;
 use App\Services\BuildingService;
+use App\Traits\Permission;
+use App\User;
 use Illuminate\Http\Request;
 use App\Container\BuildingContainer;
 
 class BuildingController extends Controller
 {
+    use Permission;
     /**
      * Display a listing of the resource.
      *
@@ -19,6 +22,7 @@ class BuildingController extends Controller
      */
     public function index($id)
     {
+        $this->checkAccess('index', Building::class);
         $buildings = Building::whereEntityId($id)->paginate(10);
 
         return view('layouts.building_list', compact('buildings'));
@@ -66,6 +70,7 @@ class BuildingController extends Controller
      */
     public function edit(BuildingService $building, $id)
     {
+        $this->checkAccess('edit', Building::class);
         $entity = $building->buildingShort($id)->entity()->first();
         $building = $building->getBuilding($id);
 
@@ -84,6 +89,7 @@ class BuildingController extends Controller
      */
     public function update(BuildingRequest $request, BuildingService $building, $id)
     {
+        $this->checkAccess('update', Building::class);
         $building->buildingUpdate($request, $id);
 
         return redirect(route('building_list', [$request->entity()]));
