@@ -8,7 +8,7 @@ class Feedback extends Model
 {
     protected $table = 'feedback';
     protected $fillable = [
-        'target_type', 'user_id', 'feedback'
+        'target_type', 'target_id', 'feedback'
     ];
 
     public function target()

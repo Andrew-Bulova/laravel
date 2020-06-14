@@ -12,6 +12,8 @@ class FeedbackController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param $targetType
+     * @param $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index($targetType, $id)
@@ -77,7 +79,7 @@ class FeedbackController extends Controller
     public function update(FeedbackRequest $request, $id)
     {
         $feedback = Feedback::findOrFail($id);
-        $feedback-> feedback = $request->get('feedback');
+        $feedback->feedback = $request->get('feedback');
         $feedback->save();
 
         return redirect(route('feedback_list', ['targetType'=>$feedback->target_type,'id'=>$feedback->target_id]));

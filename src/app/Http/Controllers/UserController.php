@@ -6,11 +6,13 @@ use App\Http\Requests\UserRequest;
 use App\Traits\Permission;
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Traits\MorphDeleting;
+
 
 class UserController extends Controller
 {
     use Permission;
+    use MorphDeleting;
 
     public function index()
     {
@@ -108,7 +110,8 @@ class UserController extends Controller
     public function destroy($id)
     {
         $this->checkAccess('destroy', User::class);
-        User::destroy($id);
+//        User::destroy($id);
+        $this->deleteMorph(User::class, $id);
 
         return redirect(route('user_list'));
     }

@@ -2,7 +2,6 @@
 
 namespace App\Traits;
 
-use App\User;
 use Illuminate\Support\Facades\Auth;
 
 trait Permission

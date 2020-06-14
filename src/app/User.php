@@ -10,13 +10,17 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    const CLASSNAME = __CLASS__;
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'phone', 'password',
+        'name',
+        'phone',
+        'password',
     ];
 
     /**
@@ -25,7 +29,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
     ];
 
     /**
@@ -37,15 +42,21 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function feedback(){
+    public function entities()
+    {
+        return $this->hasMany(Entity::class);
+    }
+
+    public function feedback()
+    {
         return $this->morphMany(Feedback::class, 'target');
     }
 
-    public static function boot()
-    {
-        parent::boot();
-        self::deleting(function ($user){
-            $user->feedback()->delete();
-        });
-    }
+//    public static function boot()
+//    {
+//        parent::boot();
+//        self::deleting(function ($user){
+//            $user->feedback()->delete();
+//        });
+//    }
 }

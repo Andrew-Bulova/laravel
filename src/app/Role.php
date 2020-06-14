@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\OverUserModel\User;
 
 class Role extends Model
 {
@@ -13,7 +14,7 @@ class Role extends Model
 
     public function users()
     {
-        return $this->belongsToMany(OverUserRole::class,
+        return $this->belongsToMany(User::class,
             'over_users_roles',
             'role_id',
             'user_id');

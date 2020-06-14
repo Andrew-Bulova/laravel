@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Contractor extends Model
 {
+    const CLASSNAME = __CLASS__;
+
     protected $table = 'contractors';
 
     protected $fillable = [

@@ -20,7 +20,7 @@ Route::post('/login', 'Auth\LoginController@login')->name('login');
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 
-Route::group(['prefix' => 'admin','middleware' => ['auth']], function () {
+Route::group(['prefix' => 'admin',], function () { //'middleware' => ['auth']
     Route::group(['prefix'=>'user'], function (){
         Route::get('/list', 'UserController@index')->name('user_list');
         Route::get('/new', 'UserController@create')->name('new_user');

@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -13,9 +14,10 @@ class CreateFeedbackTable extends Migration
      */
     public function up()
     {
+        DB::connection()->enableQueryLog();
         Schema::create('feedback', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->enum('target_type', ['User', 'Contractor']);
+            $table->enum('target_type', ['App\\Contractor', 'App\\\\User']);
             $table->unsignedBigInteger('target_id');
             $table->text('feedback');
             $table->unsignedTinyInteger('rating');
